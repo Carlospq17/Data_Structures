@@ -3,20 +3,12 @@ from django.http import JsonResponse
 
 import json
 
-from api.custom_objects.creators.ArrayCreator import ArrayCreator
-from api.custom_objects.creators.LinkedListCreator import LinkedListCreator
-from api.custom_objects.creators.QueueCreator import QueueCreator
-from api.custom_objects.creators.StackedCreator import StackedCreator
-
 # Create your views here.
 
 class product_call(View):
     
     def get(self, request):
-        a = LinkedListCreator()
-        b = a.get_concrete_element()
-        c = b()
-        return JsonResponse(f"This is a test {c.operation()}",safe = False)
+        pass
 
     def post(self, request):
         pass
