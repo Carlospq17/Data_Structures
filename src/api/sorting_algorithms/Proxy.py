@@ -14,6 +14,9 @@ class Proxy(SortInterface):
         self._time = end - start
         return arr
 
+    def generateExampleArray(self, size):
+        return self._real_subject.generateExampleArray(size)
+    
     def getTime(self):
         return self._time
 
