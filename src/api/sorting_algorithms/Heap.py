@@ -1,4 +1,5 @@
 from api.sorting_algorithms.SortInterface import SortInterface
+from random import randint
 
 class Heap(SortInterface):
 
@@ -32,3 +33,9 @@ class Heap(SortInterface):
             print("This should be a Log error message")
         finally:
             return arr
+
+    def generateExampleArray(self, size):
+        arr = []
+        for _ in range(size):
+            arr.append(randint(-1000, 1000))
+        return arr

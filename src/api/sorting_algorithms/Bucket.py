@@ -1,37 +1,41 @@
 from api.sorting_algorithms.SortInterface import SortInterface
+from random import random
 
 class Bucket(SortInterface):
 
-	def func_insertion_sort(self, a):
-		for i in range(1, len(a)):
-			r = a[i]
+	def insertionSort(self, b):
+		for i in range(1, len(b)):
+			up = b[i]
 			j = i - 1
-			while j >= 0 and a[j] > r:
-				a[j+1] = a[j]
+			while j >= 0 and b[j] > up: 
+				b[j + 1] = b[j]
 				j -= 1
-			a[j+1] = r
-		return a
-
-	def sort(self, arr):
+			b[j + 1] = up     
+		return b     
+				
+	def sort(self, x):
 		arr = []
-		bucket_slot_num = 10
+		slot_num = 10
+
+		for i in range(slot_num):
+			arr.append([])
+			
+		for j in x:
+			index_b = int(slot_num * j) 
+			arr[index_b].append(j)
 		
-		try:
-			for i in range(bucket_slot_num):
-				arr.append([])
-			for j in arr:
-				index_b = int(bucket_slot_num * j)
-				arr[index_b]
-				arr[index_b].append(j)
-			for i in range(bucket_slot_num):
-				arr[i] = self.func_insertion_sort(arr[i])
-			k = 0
-			for i in range(bucket_slot_num):
-				for j in range(len(arr[i])):
-					arr[k] = arr[i][j]
-					k += 1
-		except:
-			print("Something went really wrong")
-			print("This should be a Log error message")
-		finally:
-			return arr
+		for i in range(slot_num):
+			arr[i] = self.insertionSort(arr[i])
+			
+		k = 0
+		for i in range(slot_num):
+			for j in range(len(arr[i])):
+				x[k] = arr[i][j]
+				k += 1
+		return x
+
+	def generateExampleArray(self, size):
+		arr = []
+		for _ in range(size):
+			arr.append(round(random(), 3))
+		return arr

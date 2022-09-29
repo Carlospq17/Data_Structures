@@ -1,4 +1,5 @@
 from api.sorting_algorithms.SortInterface import SortInterface
+from random import randint
 
 class Selection(SortInterface):
 
@@ -17,4 +18,10 @@ class Selection(SortInterface):
         except:
             print("Something went really wrong")
             print("This should be a Log error message")
+        return arr
+
+    def generateExampleArray(self, size):
+        arr = []
+        for _ in range(size):
+            arr.append(randint(-1000, 1000))
         return arr

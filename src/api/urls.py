@@ -1,6 +1,6 @@
 from django.urls import path
-from api.views import product_call
+from api.views import sorting_methods
 
 urlpatterns = [
-    path('structure/', product_call.as_view(), name='figure_list')
+    path('v1/sorting_methods', sorting_methods.as_view(), name='sorting_methods')
 ]
