@@ -1,6 +1,5 @@
 from api.sorting_algorithms.SortInterface import SortInterface
-from timeit import default_timer as timer
-
+import time
 class Proxy(SortInterface):
     _time = 0
 
@@ -8,9 +7,9 @@ class Proxy(SortInterface):
         self._real_subject = real_subject
 
     def sort(self, arr):
-        start = timer()
+        start = time.perf_counter()
         self._real_subject.sort(arr)
-        end = timer()
+        end = time.perf_counter()
         self._time = end - start
         return arr
 
